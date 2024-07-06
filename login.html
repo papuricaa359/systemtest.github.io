@@ -97,7 +97,7 @@
                 .then(data => {
                     if (data.error) {
                         resultDiv.textContent = `エラー: ${data.error}`;
-                        loginButton.textContent = 'FastPassを取得する';
+                        loginButton.textContent = '食券を取得する';
                         loginButton.disabled = false;
                     } else {
                         window.location.href = `show.html?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
@@ -106,7 +106,7 @@
                 .catch(error => {
                     console.error('エラー:', error);
                     resultDiv.textContent = 'データの取得に失敗しました。';
-                    loginButton.textContent = 'FastPassを取得する';
+                    loginButton.textContent = '食券を取得する';
                     loginButton.disabled = false;
                 });
         }
