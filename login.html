@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン画面</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffd700;
+            color: #0069d9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffc107;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: red;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ログイン</h2>
+        <div class="input-group">
+            <input type="text" id="login-username" required placeholder="ユーザーネームを入力してください">
+        </div>
+        <div class="input-group">
+            <input type="password" id="login-password" required placeholder="パスワードを入力してください">
+        </div>
+        <button onclick="login()" id="loginButton">食券を取得する</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const loginButton = document.getElementById('loginButton');
+            const resultDiv = document.getElementById('result');
+
+            loginButton.textContent = '送信中...';
+            loginButton.disabled = true;
+
+            fetch(`https://script.google.com/macros/s/AKfycbxFwKlq9U3DFsBrJWWJ6CwDIcTGl0m9sRZjiGhSref48_Uf8h2-aK5aVNQeeCUNRrQ/exec?username=${username}&password=${password}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        resultDiv.textContent = `エラー: ${data.error}`;
+                        loginButton.textContent = '食券を取得する';
+                        loginButton.disabled = false;
+                    } else {
+                        window.location.href = `show.html?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('エラー:', error);
+                    resultDiv.textContent = 'データの取得に失敗しました。';
+                    loginButton.textContent = '食券を取得する';
+                    loginButton.disabled = false;
+                });
+        }
+    </script>
+</body>
+</html>
