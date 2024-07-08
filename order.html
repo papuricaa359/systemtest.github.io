@@ -329,8 +329,9 @@
 
         function usercheck() {
             var username = document.getElementById("username").value;
-            if(username===""){
-                alert("ニックネームを入力してください。")
+            if (username === "") {
+                alert("ユーザーネームを入力してください。");
+                return;
             }
             var overlay = document.getElementById("overlay");
             overlay.style.display = "flex";
