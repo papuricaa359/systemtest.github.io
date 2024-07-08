@@ -329,6 +329,9 @@
 
         function usercheck() {
             var username = document.getElementById("username").value;
+            if(username===""){
+                alert("ニックネームを入力してください。")
+            }
             var overlay = document.getElementById("overlay");
             overlay.style.display = "flex";
             fetch(`https://script.google.com/macros/s/AKfycby--sfvXS3lV-quwW-cSO_5s4mGEMtbVKlY959I_7GSBB4RXLGk-VUd0J9SkB6Kc1rc/exec?username=${encodeURIComponent(username)}`)
