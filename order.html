@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焼きそば</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        header {
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 2px solid #7e7e7e;
+            margin: auto;
+        }
+
+        header h1 {
+            text-align: center;
+            margin: 0px;
+        }
+
+        .container {
+            width: 90vw;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .solid {
+            width: 90vw;
+            border-bottom: 2px solid #7e7e7e;
+            padding-bottom: 20px;
+            margin-top: 15px;
+        }
+
+        .container h1 {
+            margin: 0;
+        }
+
+        .container p {
+            margin: 0px;
+        }
+
+        .container h1 {
+            border-bottom: 2px solid #7e7e7e;
+        }
+
+        .container input {
+            width: 85vw;
+            height: 4vh;
+            border-radius: 4vh;
+            font-size: 2.5vh;
+            border: 0.5px solid #7e7e7e;
+        }
+
+        .container .input-group .flex {
+            display: flex;
+        }
+
+        .container select {
+            width: 45vw;
+            height: 4vh;
+            border-radius: 2vh;
+            margin-right: 0px;
+            font-size: 2.5vh;
+            border: 0.5px solid #7e7e7e;
+        }
+
+        .regist {
+            margin-top: 40px;
+        }
+
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            margin-top: 20px;
+            width: 85vw;
+            border-radius: 5vw;
+            background-color: rgb(232, 227, 227);
+        }
+
+        .product .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 5vw;
+        }
+
+        .product h2 {
+            margin: 0px;
+            width: 95%;
+            margin-left: 5%;
+            font-size: 40px;
+            text-align: left;
+            font-size: 30px;
+        }
+
+        .product p {
+            margin: 0;
+            font-size: 30px;
+            color: #717171;
+            margin-left: 5%;
+        }
+
+        .product .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .product label {
+            width: 20vw;
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        .product select {
+            width: 20vw;
+            height: 40px;
+            font-size: 6vw;
+            margin-right: 5vw;
+        }
+
+        .product label {
+            font-size: 30px;
+        }
+
+        .sum {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 5%;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .sum p {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        button {
+            height: 40px;
+            width: 100%;
+            font-size: 16px;
+            color: white;
+            background-color: #036635;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link:hover {
+            background-color: #024e27;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #c6c6c6;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>大谷一平ちゃん（仮）</h1>
+    </header>
+    <div class="container">
+        <form id="registrationForm">
+            <h1>顧客情報</h1>
+            <div class="solid">
+                <p>ニックネームを入力してください。</p>
+                <div class="input-group">
+                    <input type="text" id="username" required placeholder="ニックネーム">
+                </div>
+            </div>
+            <div class="solid">
+                <p>受け取りたい時間を選択してください。</p>
+                <div class="input-group">
+                    <div class="flex">
+                        <select id="hour" required>
+                            <option value="00">00時</option>
+                            <option value="01">01時</option>
+                            <option value="02">02時</option>
+                            <option value="03">03時</option>
+                            <option value="04">04時</option>
+                            <option value="05">05時</option>
+                            <option value="06">06時</option>
+                            <option value="07">07時</option>
+                            <option value="08">08時</option>
+                            <option value="09">09時</option>
+                            <option value="10">10時</option>
+                            <option value="11">11時</option>
+                            <option value="12">12時</option>
+                            <option value="13">13時</option>
+                            <option value="14">14時</option>
+                            <option value="15">15時</option>
+                            <option value="16">16時</option>
+                            <option value="17">17時</option>
+                            <option value="18">18時</option>
+                            <option value="19">19時</option>
+                            <option value="20">20時</option>
+                            <option value="21">21時</option>
+                            <option value="22">22時</option>
+                            <option value="23">23時</option>
+                        </select>
+                        <select id="minute" required>
+                            <option value="00">00分</option>
+                            <option value="15">15分</option>
+                            <option value="30">30分</option>
+                            <option value="45">45分</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="regist">
+                <h1>商品登録</h1>
+                <p>欲しい商品の個数を選択してください</p>
+                <div class="product">
+                    <img src="yakisoba.jpg" alt="焼きそば">
+                    <h2>焼きそば</h2>
+                    <div class="flex">
+                        <p>￥400</p>
+                        <div class="input-group">
+                            <label for="yakisoba">数量</label>
+                            <select id="yakisoba" required onchange="updateSum()">
+                                <option value="1">1個</option>
+                                <option value="2">2個</option>
+                                <option value="3">3個</option>
+                                <option value="4">4個</option>
+                                <option value="5">5個</option>
+                                <option value="6">6個</option>
+                                <option value="7">7個</option>
+                                <option value="8">8個</option>
+                                <option value="9">9個</option>
+                                <option value="10">10個</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="egg.jpg" alt="目玉焼き">
+                    <h2>目玉焼き(オプション)</h2>
+                    <div class="flex">
+                        <p>￥50</p>
+                        <div class="input-group">
+                            <label for="egg">数量</label>
+                            <select id="egg" required onchange="updateSum()">
+                                <option value="0">0個</option>
+                                <option value="1">1個</option>
+                                <option value="2">2個</option>
+                                <option value="3">3個</option>
+                                <option value="4">4個</option>
+                                <option value="5">5個</option>
+                                <option value="6">6個</option>
+                                <option value="7">7個</option>
+                                <option value="8">8個</option>
+                                <option value="9">9個</option>
+                                <option value="10">10個</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sum">
+                    <p>合計: <span id="totalAmount">400</span>円</p>
+                </div>
+            </div>
+            <button type="button" onclick="usercheck()">注文確定</button>
+        </form>
+    </div>
+    <footer>
+        <p>大谷一平ちゃん（仮）</p>
+    </footer>
+    <div class="overlay" id="overlay">
+        <div class="overlay-text">送信中...</div>
+    </div>
+    <script>
+        window.onload = function () {
+            updateSum();
+        };
+
+        function updateSum() {
+            var yakisobaPrice = 400;
+            var eggPrice = 100;
+
+            var yakisobaQuantity = parseInt(document.getElementById("yakisoba").value, 10);
+            var eggQuantity = parseInt(document.getElementById("egg").value, 10);
+
+            var total = yakisobaPrice * yakisobaQuantity + eggPrice * eggQuantity;
+            document.getElementById("totalAmount").textContent = total;
+        }
+
+        function usercheck() {
+            var username = document.getElementById("username").value;
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "flex";
+            fetch(`https://script.google.com/macros/s/AKfycby--sfvXS3lV-quwW-cSO_5s4mGEMtbVKlY959I_7GSBB4RXLGk-VUd0J9SkB6Kc1rc/exec?username=${encodeURIComponent(username)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.flag === "true") {
+                        alert("入力したニックネームは既に登録されています。別のニックネームを入力してください。");
+                        overlay.style.display = "none";
+                    } else {
+                        register();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking username:', error);
+                    alert("エラーが発生しました。もう一度お試しください。");
+                });
+        }
+
+        function register() {
+            var username = document.getElementById("username").value;
+            var hour = document.getElementById("hour").value;
+            var minute = document.getElementById("minute").value;
+            var yakisoba = document.getElementById("yakisoba").value;
+            var egg = document.getElementById("egg").value;
+            var time = hour + "：" + minute;
+            var formData = new FormData();
+            formData.append("username", username);
+            formData.append("time", time);
+            formData.append("yakisoba", yakisoba);
+            formData.append("egg", egg);
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "flex";
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // 登録成功後の処理
+                        document.getElementById("username").value = "";
+                        document.getElementById("hour").value = "";
+                        document.getElementById("minute").value = "";
+                        document.getElementById("yakisoba").value = "";
+                        document.getElementById("egg").value = "";
+                        window.location.href = 'send.html'; 
+                    } else {
+                        alert('登録に失敗しました。再度お試しください。');
+                    }
+                    overlay.style.display = "none";
+                }
+            };
+            xhr.open("POST", "https://script.google.com/macros/s/AKfycby--sfvXS3lV-quwW-cSO_5s4mGEMtbVKlY959I_7GSBB4RXLGk-VUd0J9SkB6Kc1rc/exec");
+            xhr.send(formData);
+        }
+    </script>
+</body>
+
+</html>
