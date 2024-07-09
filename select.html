@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>すべて</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8d568; 
+            text-align: center;
+            padding: 0px;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2a7cb8; 
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .button-link {
+            background-color: #3b9ae1; 
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            border: none;
+            flex: 1 0 45%;
+        }
+
+        .button-link:hover {
+            background-color: #2a7cb8;
+            transform: translateY(-2px);
+        }
+
+        .button-link:active {
+            background-color: #1f5a86;
+            transform: translateY(2px);
+        }
+
+        .full-width {
+            flex: 1 0 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WEBシステム<br>メニュー</h1>
+    </header>
+    <div class="button-container">
+        <div class="button-row">
+            <button class="button-link full-width" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/top.html';">焼きそば</button>
+        </div>
+        <div class="button-row">
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/order.html';">注文する</button>
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/login.html';">ログイン・食券を表示</button>
+        </div>
+        <div class="button-row">
+            <button class="button-link full-width" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/check.html';">ユーザー管理</button>
+        </div>
+        <div class="button-row">
+            <button class="button-link full-width" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/top.html';">ファストパス</button>
+        </div>
+        <div class="button-row">
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/top.html';">ファストパスを取得</button>
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/top.html';">ログイン・ファストパスを表示</button>
+        </div>
+        <div class="button-row">
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/login.html';">待ち時間表示</button>
+            <button class="button-link" onclick="window.location.href='https://papuricaa359.github.io/systemtest.github.io/login.html';">待ち時間管理</button>
+        </div>
+    </div>
+</body>
+</html>
